@@ -13,6 +13,8 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 
+import "./Card.css"
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -68,18 +70,20 @@ export default function RecipeReviewCard(props) {
     <Card className={classes.root} align="left" style={{
       backgroundColor: "#161616", color: "#eff",
     }}>
-      <CardHeader
-        avatar={
-          <Avatar alt={props.user.login} src={props.user.avatar_url} aria-label="recipe" className={classes.avatar}>
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            {/* <MoreVertIcon /> */}
-          </IconButton>
-        }
-        title={props.user.login}
-      />
+      <a href={props.url} style={{textDecoration: 'none'}}>
+        <CardHeader style={{color: 'white'}}
+          avatar={
+            <Avatar alt={props.user.login} src={props.user.avatar_url} aria-label="recipe" className={classes.avatar}>
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              {/* <MoreVertIcon /> */}
+            </IconButton>
+          }
+          title={props.user.login}
+        />
+      </a>
 
       <Divider  />
 

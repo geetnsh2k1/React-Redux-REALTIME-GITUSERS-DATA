@@ -28,6 +28,7 @@ function App() {
 
     const res = await axios.get(`https://api.github.com/users?since=${state.PaginationReducer.since}&per_page=${state.PaginationReducer.per_page}`)
     setUsers(res.data)
+    console.log(res.data)
 
   } 
 
@@ -41,7 +42,6 @@ function App() {
 
   useEffect(() => {
     fetch()
-    console.log("hola")
   }, [state.PaginationReducer.since, state.PaginationReducer.per_page])
 
   return (
@@ -70,7 +70,7 @@ function App() {
             {
                 users ? users.map((user) => (
                   <Grid item xs>
-                    <Card key={user.id} user={user}></Card>
+                    <Card key={user.id} user={user} url={user.url}></Card>
                   </Grid>
                 )) : ""
             }
